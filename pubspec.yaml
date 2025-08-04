@@ -1,7 +1,11 @@
 name: offline_sms
 description: A Flutter package for peer-to-peer messaging via Bluetooth Low Energy (BLE) without internet connection.
 version: 1.0.0
-homepage: https://github.com/your-username/offline_sms
+homepage: https://github.com/stanislavworldin/offline_sms
+repository: https://github.com/stanislavworldin/offline_sms
+issue_tracker: https://github.com/stanislavworldin/offline_sms/issues
+documentation: https://github.com/stanislavworldin/offline_sms#readme
+license: MIT
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
@@ -27,4 +31,12 @@ flutter:
         package: com.example.offline_sms
         pluginClass: OfflineSmsPlugin
       ios:
-        pluginClass: OfflineSmsPlugin 
+        pluginClass: OfflineSmsPlugin
+
+# Pub.dev tags for better discoverability
+topics:
+  - bluetooth
+  - ble
+  - messaging
+  - offline
+  - peer-to-peer
