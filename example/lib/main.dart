@@ -154,8 +154,10 @@ class _ChatScreenState extends State<ChatScreen> {
                 if (_connectedDevice != null)
                   Text('Connected to: ${_connectedDevice!.name}'),
                 if (_isDemoMode)
-                  const Text(' (Demo Mode)',
-                      style: TextStyle(fontStyle: FontStyle.italic)),
+                  const Text(
+                    ' (Demo Mode)',
+                    style: TextStyle(fontStyle: FontStyle.italic),
+                  ),
               ],
             ),
           ),
@@ -176,8 +178,10 @@ class _ChatScreenState extends State<ChatScreen> {
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(width: 8),
-                        Text('(${_devices.length})',
-                            style: TextStyle(color: Colors.grey[600])),
+                        Text(
+                          '(${_devices.length})',
+                          style: TextStyle(color: Colors.grey[600]),
+                        ),
                       ],
                     ),
                   ),
@@ -198,8 +202,11 @@ class _ChatScreenState extends State<ChatScreen> {
                               children: [
                                 Row(
                                   children: [
-                                    Icon(Icons.phone_android,
-                                        size: 20, color: Colors.blue),
+                                    Icon(
+                                      Icons.phone_android,
+                                      size: 20,
+                                      color: Colors.blue,
+                                    ),
                                     const SizedBox(width: 8),
                                     Expanded(
                                       child: Text(
@@ -228,11 +235,14 @@ class _ChatScreenState extends State<ChatScreen> {
                                     onPressed: () => _connectToDevice(device),
                                     style: ElevatedButton.styleFrom(
                                       padding: const EdgeInsets.symmetric(
-                                          vertical: 6),
+                                        vertical: 6,
+                                      ),
                                       minimumSize: const Size(0, 32),
                                     ),
-                                    child: const Text('Connect',
-                                        style: TextStyle(fontSize: 12)),
+                                    child: const Text(
+                                      'Connect',
+                                      style: TextStyle(fontSize: 12),
+                                    ),
                                   ),
                                 ),
                               ],
@@ -294,23 +304,28 @@ class _ChatScreenState extends State<ChatScreen> {
                       padding: const EdgeInsets.only(bottom: 8),
                       child: Row(
                         children: [
-                          const Text('Send as: ',
-                              style: TextStyle(fontSize: 12)),
+                          const Text(
+                            'Send as: ',
+                            style: TextStyle(fontSize: 12),
+                          ),
                           const SizedBox(width: 8),
                           DropdownButton<String>(
                             value: _selectedSenderDevice,
-                            items: [
-                              'MacBook Pro (Demo)',
-                              'iPhone 15 Pro',
-                              'Samsung Galaxy S24',
-                              'Google Pixel 8',
-                            ].map((String device) {
-                              return DropdownMenuItem<String>(
-                                value: device,
-                                child: Text(device,
-                                    style: const TextStyle(fontSize: 12)),
-                              );
-                            }).toList(),
+                            items:
+                                [
+                                  'MacBook Pro (Demo)',
+                                  'iPhone 15 Pro',
+                                  'Samsung Galaxy S24',
+                                  'Google Pixel 8',
+                                ].map((String device) {
+                                  return DropdownMenuItem<String>(
+                                    value: device,
+                                    child: Text(
+                                      device,
+                                      style: const TextStyle(fontSize: 12),
+                                    ),
+                                  );
+                                }).toList(),
                             onChanged: (String? newValue) {
                               if (newValue != null) {
                                 setState(() {
@@ -353,12 +368,14 @@ class _ChatScreenState extends State<ChatScreen> {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       child: Row(
-        mainAxisAlignment:
-            isFromMe ? MainAxisAlignment.end : MainAxisAlignment.start,
+        mainAxisAlignment: isFromMe
+            ? MainAxisAlignment.end
+            : MainAxisAlignment.start,
         children: [
           Container(
             constraints: BoxConstraints(
-                maxWidth: MediaQuery.of(context).size.width * 0.7),
+              maxWidth: MediaQuery.of(context).size.width * 0.7,
+            ),
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
               color: isFromMe ? Colors.blue : Colors.grey[300],
@@ -456,9 +473,9 @@ class _ChatScreenState extends State<ChatScreen> {
 
     if (success) {
       setState(() => _connectedDevice = device);
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Connected to ${device.name}')),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('Connected to ${device.name}')));
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Failed to connect to ${device.name}')),
@@ -488,9 +505,9 @@ class _ChatScreenState extends State<ChatScreen> {
     if (success) {
       _messageController.clear();
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Failed to send message')),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text('Failed to send message')));
     }
   }
 

@@ -64,8 +64,8 @@ class OfflineSms {
       // Request permissions
       final bluetoothPermission = await Permission.bluetooth.request();
       final bluetoothScanPermission = await Permission.bluetoothScan.request();
-      final bluetoothConnectPermission =
-          await Permission.bluetoothConnect.request();
+      final bluetoothConnectPermission = await Permission.bluetoothConnect
+          .request();
       final locationPermission = await Permission.location.request();
 
       if (bluetoothPermission.isDenied ||

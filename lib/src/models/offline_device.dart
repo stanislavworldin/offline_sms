@@ -19,10 +19,7 @@ class OfflineDevice {
     this.bluetoothDevice,
   });
 
-  factory OfflineDevice.fromBluetoothDevice(
-    BluetoothDevice device,
-    int rssi,
-  ) {
+  factory OfflineDevice.fromBluetoothDevice(BluetoothDevice device, int rssi) {
     return OfflineDevice(
       id: device.remoteId.toString(),
       name: device.platformName.isNotEmpty

@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.0.1] - 2025-08-08
+
+### Changed
+- Updated `permission_handler` to ^12.0.1
+- Updated `flutter_lints` to ^6.0.0 and fixed lint warnings in example and package
+- Added extended debug logging across BLE lifecycle in `lib/src/offline_sms.dart`
+- Seeded initial stream emissions in `OfflineSms` constructor
+- Cleaned up `.gitignore` and ignored local `deploy_pages.sh`
+- Example app marked as non-publishable and minor UI/lint fixes
+
+### CI/Docs
+- Added GitHub Pages deploy for web demo via `deploy_pages.sh`
+- Ensured `flutter analyze` passes with no issues
+
 ## [1.0.0] - 2024-01-01
 
 ### Added

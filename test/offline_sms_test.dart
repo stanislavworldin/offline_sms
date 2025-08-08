@@ -91,7 +91,9 @@ void main() {
       expect(restoredMessage.isFromMe, originalMessage.isFromMe);
       expect(restoredMessage.senderDeviceId, originalMessage.senderDeviceId);
       expect(
-          restoredMessage.senderDeviceName, originalMessage.senderDeviceName);
+        restoredMessage.senderDeviceName,
+        originalMessage.senderDeviceName,
+      );
       expect(restoredMessage.id, originalMessage.id);
     });
   });
@@ -136,11 +138,15 @@ void main() {
 
   group('OfflineConnectionState Tests', () {
     test('should have correct descriptions', () {
-      expect(OfflineConnectionState.unavailable.description,
-          'Bluetooth Unavailable');
+      expect(
+        OfflineConnectionState.unavailable.description,
+        'Bluetooth Unavailable',
+      );
       expect(OfflineConnectionState.idle.description, 'Idle');
       expect(
-          OfflineConnectionState.scanning.description, 'Scanning for devices');
+        OfflineConnectionState.scanning.description,
+        'Scanning for devices',
+      );
       expect(OfflineConnectionState.connecting.description, 'Connecting...');
       expect(OfflineConnectionState.connected.description, 'Connected');
       expect(OfflineConnectionState.disconnected.description, 'Disconnected');

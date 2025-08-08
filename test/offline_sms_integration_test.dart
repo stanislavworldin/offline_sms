@@ -111,7 +111,9 @@ void main() {
       expect(restoredMessage.isFromMe, originalMessage.isFromMe);
       expect(restoredMessage.senderDeviceId, originalMessage.senderDeviceId);
       expect(
-          restoredMessage.senderDeviceName, originalMessage.senderDeviceName);
+        restoredMessage.senderDeviceName,
+        originalMessage.senderDeviceName,
+      );
       expect(restoredMessage.id, originalMessage.id);
     });
 
@@ -145,11 +147,15 @@ void main() {
 
   group('Connection State Tests', () {
     test('should have valid state transitions', () {
-      expect(OfflineConnectionState.unavailable.description,
-          'Bluetooth Unavailable');
+      expect(
+        OfflineConnectionState.unavailable.description,
+        'Bluetooth Unavailable',
+      );
       expect(OfflineConnectionState.idle.description, 'Idle');
       expect(
-          OfflineConnectionState.scanning.description, 'Scanning for devices');
+        OfflineConnectionState.scanning.description,
+        'Scanning for devices',
+      );
       expect(OfflineConnectionState.connecting.description, 'Connecting...');
       expect(OfflineConnectionState.connected.description, 'Connected');
       expect(OfflineConnectionState.disconnected.description, 'Disconnected');
@@ -204,12 +210,14 @@ void main() {
       final devices = <OfflineDevice>[];
 
       for (int i = 0; i < 100; i++) {
-        devices.add(OfflineDevice(
-          id: 'device-$i',
-          name: 'Device $i',
-          rssi: -50 - i,
-          discoveredAt: DateTime.now(),
-        ));
+        devices.add(
+          OfflineDevice(
+            id: 'device-$i',
+            name: 'Device $i',
+            rssi: -50 - i,
+            discoveredAt: DateTime.now(),
+          ),
+        );
       }
 
       expect(devices.length, 100);
@@ -221,12 +229,14 @@ void main() {
       final messages = <OfflineMessage>[];
 
       for (int i = 0; i < 1000; i++) {
-        messages.add(OfflineMessage(
-          content: 'Message $i',
-          isFromMe: i % 2 == 0,
-          senderDeviceId: 'device-${i % 5}',
-          senderDeviceName: 'Device ${i % 5}',
-        ));
+        messages.add(
+          OfflineMessage(
+            content: 'Message $i',
+            isFromMe: i % 2 == 0,
+            senderDeviceId: 'device-${i % 5}',
+            senderDeviceName: 'Device ${i % 5}',
+          ),
+        );
       }
 
       expect(messages.length, 1000);

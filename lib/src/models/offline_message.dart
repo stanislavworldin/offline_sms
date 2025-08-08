@@ -15,8 +15,8 @@ class OfflineMessage {
     required this.isFromMe,
     required this.senderDeviceId,
     required this.senderDeviceName,
-  })  : id = id ?? const Uuid().v4(),
-        timestamp = timestamp ?? DateTime.now();
+  }) : id = id ?? const Uuid().v4(),
+       timestamp = timestamp ?? DateTime.now();
 
   factory OfflineMessage.fromJson(Map<String, dynamic> json) {
     return OfflineMessage(
